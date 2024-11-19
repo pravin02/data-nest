@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: dn-dataset-service
+
+server:
+  port: 8080
+
+dataset:
+  location: "E:/Practice/SpringBoot/data-nest/dataset-files"

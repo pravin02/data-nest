@@ -1,0 +1,23 @@
+{
+  "columns": [
+    {
+      "column": "SrNo",
+      "rules": []
+    },
+    {
+      "column": "FirstName",
+      "rules": [
+        {
+          "subtract": "(data)=>data.substr(1)"
+        },
+        {
+          "upperCase": "(data)=>data.toLocaleUpperCase()"
+        }
+      ]
+    },
+    {
+      "column": "LastName",
+      "rules": []
+    }
+  ]
+}

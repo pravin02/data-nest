@@ -1,0 +1,261 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="DataNest" id="UM-Zo9KeCU_dCUbFCf_0">
+    <mxGraphModel dx="880" dy="1232" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-1" value="Mongo DB" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.data;" vertex="1" parent="1">
+          <mxGeometry x="190" y="440" width="50" height="59.1" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-2" value="Kakfa Queue" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;direction=north;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="450" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-3" value="DataSet Service&lt;div&gt;&lt;br&gt;&lt;div&gt;Which maintains files in different formats &amp;amp; suport multiple type of connectivity like API/Socket/Queue&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-4" value="&lt;div&gt;DataPoller Service&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Service suppors multiple data polling strategy to pull files like API/Socket/Queue and stores in DB&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-5" value="&lt;div&gt;Aggregator Service&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Pull file data stored in DB and aggregates &amp;amp; stores aggregated data in DB&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="520" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-6" value="&lt;div&gt;StrategyImplementor Service&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Pull aggregated data &amp;amp; spec stored in DB and applies strategies mentioned in spec file.&lt;/div&gt;&lt;/div&gt;&lt;div&gt;Stores final version data &amp;amp; file in DB&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="760" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-7" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.286;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="709.6" y="281.2" as="sourcePoint" />
+            <mxPoint x="709.68" y="159.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-11" value="API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-7">
+          <mxGeometry x="0.0305" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-8" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.286;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="808.98" y="282.2" as="sourcePoint" />
+            <mxPoint x="808.98" y="161.2" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-12" value="Socket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-8">
+          <mxGeometry x="0.0496" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-9" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.286;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="281" as="sourcePoint" />
+            <mxPoint x="630" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-14" value="Push Final Version File" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelPosition=right;verticalLabelPosition=middle;textDirection=vertical-lr;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-9">
+          <mxGeometry x="-0.0124" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-16" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;1&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="669.6" y="171.2" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-17" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;2&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="669.6" y="241.2" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-18" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;1&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="769.6" y="171.2" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-21" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;2&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="769.6" y="241.2" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-22" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;flowAnimation=1;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-3" target="GRJAkJYchJ8ZzIT0V5Id-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="770" y="220" as="sourcePoint" />
+            <mxPoint x="820" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-23" value="Push raw file along with specification to queue" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=313;textDirection=vertical-lr;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-22">
+          <mxGeometry x="0.007" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-24" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;1&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="400" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-25" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.013;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.855;exitY=0;exitDx=0;exitDy=4.35;exitPerimeter=0;flowAnimation=1;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1160" y="499.70000000000005" as="sourcePoint" />
+            <mxPoint x="879.2899999999998" y="341.03999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-26" value="Event Received to pull file from queue" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;rotation=292;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-25">
+          <mxGeometry x="-0.3" y="-2" relative="1" as="geometry">
+            <mxPoint y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-29" value="" style="endArrow=classic;html=1;rounded=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="340" as="sourcePoint" />
+            <mxPoint x="240" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-30" value="Store raw file along with spec file into DB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=346;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-29">
+          <mxGeometry x="0.007" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-31" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;3&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="564" y="351" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-32" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;2&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="895.65" y="321" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-33" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.855;exitY=0;exitDx=0;exitDy=4.35;exitPerimeter=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="875.65" y="361" as="sourcePoint" />
+            <mxPoint x="1156" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-34" value="Send Event to Aggregate data Based in spec" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;rotation=293;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-33">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-36" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;4&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="454.55" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-39" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.013;entryY=0.188;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-2" target="GRJAkJYchJ8ZzIT0V5Id-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="240" as="sourcePoint" />
+            <mxPoint x="895" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-40" value="Event triiger to pull file &amp;amp; spec from DB" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=258;textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-39">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-41" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;5&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="895.65" y="490" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-46" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1.075;entryY=0.169;entryDx=0;entryDy=0;entryPerimeter=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="592.25" y="555.01" as="sourcePoint" />
+            <mxPoint x="240.00000000000023" y="454.9979000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-47" value="Fetch stored file along with spec from db" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=14;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-46">
+          <mxGeometry x="0.06" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-50" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.05;entryY=0.698;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1" target="GRJAkJYchJ8ZzIT0V5Id-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="590" as="sourcePoint" />
+            <mxPoint x="324" y="653" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-51" value="Store aggregated data in DB" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=285;textDirection=vertical-rl;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-50">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-52" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;6&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="564" y="510" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-53" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;7&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="250" y="490" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-60" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="880" y="562.1" as="sourcePoint" />
+            <mxPoint x="1160" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-61" value="Send Event to apply strategy on data" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=258;textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-60">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-62" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;8&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="510" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-63" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1" target="GRJAkJYchJ8ZzIT0V5Id-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1201.65" y="510" as="sourcePoint" />
+            <mxPoint x="925.65" y="573" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-64" value="Event Received to apply stragegy based on specification" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=230;textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-63">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-65" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;9&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="895.65" y="720" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-66" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;flowAnimation=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="785" as="sourcePoint" />
+            <mxPoint x="240" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-67" value="Fetch aggregaed data along with spec from db" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=36;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-66">
+          <mxGeometry x="0.06" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-68" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;10&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="564" y="734.1" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.011;exitY=0.567;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="839" as="sourcePoint" />
+            <mxPoint x="200" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-70" value="Store final version data in DB" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=307;textDirection=vertical-rl;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-69">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-71" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;11&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="200" y="540" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-73" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.007;exitY=0.583;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" edge="1" parent="1" source="GRJAkJYchJ8ZzIT0V5Id-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="970" y="572.1" as="sourcePoint" />
+            <mxPoint x="1250" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-74" value="Send Event to to push final version data file to data set" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];rotation=229;textDirection=vertical-lr;labelPosition=left;verticalLabelPosition=middle;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-73">
+          <mxGeometry x="0.01" relative="1" as="geometry">
+            <mxPoint x="-18" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-75" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;12&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="520" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-77" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;flowAnimation=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="602.25" y="300.01" as="sourcePoint" />
+            <mxPoint x="210" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-78" value="Fetch final version file and place on given localtion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=342;" vertex="1" connectable="0" parent="GRJAkJYchJ8ZzIT0V5Id-77">
+          <mxGeometry x="0.06" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-79" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;13&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="550" y="260" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-80" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;14&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="594" y="171.2" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GRJAkJYchJ8ZzIT0V5Id-82" value="Data Nest High Level Data Flow Diagram" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="520" y="-40" width="480" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
