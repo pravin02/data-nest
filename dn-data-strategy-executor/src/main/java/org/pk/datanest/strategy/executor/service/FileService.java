@@ -6,5 +6,7 @@ public interface FileService {
 
     void save(String fileName, String content);
 
+    void save(String directory, String fileName, String content);
+
     Resource loadAsResource(String fileName);
 }

@@ -31,10 +31,21 @@ public class FileStorageService implements FileService {
     }
 
 
+    @Override
     public void save(String fileName, String content) {
         try {
             logger.info("save: location: {}", dataSetFileLocation + fileName);
             FileUtils.saveFile(dataSetFileLocation + fileName, content);
+        } catch (IOException e) {
+            logger.error("saveFile: failed to save file {} with exception {}", fileName, e.getMessage());
+        }
+    }
+
+    @Override
+    public void save(String directory, String fileName, String content) {
+        try {
+            logger.info("save: location: {}", dataSetFileLocation + directory + "/" + fileName);
+            FileUtils.saveFile(dataSetFileLocation + directory + "/" + fileName, content);
         } catch (IOException e) {
             logger.error("saveFile: failed to save file {} with exception {}", fileName, e.getMessage());
         }

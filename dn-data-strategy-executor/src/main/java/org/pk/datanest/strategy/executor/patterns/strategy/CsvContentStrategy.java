@@ -99,7 +99,7 @@ public class CsvContentStrategy implements Strategy {
 
             StringBuffer buffer = applyStrategy(csvContent, jsonSpecification);
             buffer.insert(0, String.join(",", jsonSpecification.getColumns().stream().map(Column::getColumn).toList()) + "\r\n");
-
+            fileService.save("final", "1_strategy_applied.csv", buffer.toString());
             logger.info("execute: data:\n{}", buffer);
         }
     }
