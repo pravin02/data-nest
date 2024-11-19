@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface Strategy {
 
-    Object executeStrategy(Map<String, String> dataMap);
+    Object execute(Map<String, String> dataMap);
 
     void executionCompleted(Map<String, String> dataMap);
 }

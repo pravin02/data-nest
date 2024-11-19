@@ -26,6 +26,7 @@ public class DownloadFileController {
 
     @GetMapping("/{clientId}/{filename:.+}")
     public ResponseEntity<?> serveFile(@PathVariable int clientId, @PathVariable String filename) {
+        logger.info("serveFile: dataPoll request received for clientId {}", clientId);
         Map<String, String> map = new HashMap<>(1);
         map.put(Constant.FILE_NAME, filename);
         map.put(Constant.CLIENT_ID, String.valueOf(clientId));

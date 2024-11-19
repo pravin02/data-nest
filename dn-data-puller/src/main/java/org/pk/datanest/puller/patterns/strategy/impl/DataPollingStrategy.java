@@ -20,7 +20,7 @@ public abstract class DataPollingStrategy implements Strategy {
     @Autowired
     Notifier notifier;
 
-    abstract public Object executeStrategy(Map<String, String> dataMap);
+    abstract public Object execute(Map<String, String> dataMap);
 
     @Override
     public void executionCompleted(Map<String, String> dataMap) {

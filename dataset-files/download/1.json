@@ -1,23 +1,30 @@
 {
-  "columns": [
+  "columns": [  
+    {
+      "column": "DOB",
+      "rules": []
+    },
     {
       "column": "SrNo",
       "rules": []
     },
     {
       "column": "FirstName",
-      "rules": [
+      "rules": [        
         {
-          "subtract": "(data)=>data.substr(1)"
-        },
-        {
-          "upperCase": "(data)=>data.toLocaleUpperCase()"
+			"name": "upperCase",
+			"ruleDef": "(data)=>data.toLocaleUpperCase()"
         }
       ]
     },
-    {
+	{
       "column": "LastName",
-      "rules": []
+       "rules": [        
+        {
+			"name": "lowerCase",
+			"ruleDef": "(data)=>data.toLocaleLowerCase()"
+        }
+      ]
     }
   ]
 }

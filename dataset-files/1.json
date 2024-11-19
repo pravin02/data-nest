@@ -16,7 +16,7 @@
       ]
     },
     {
-      "column": "LastName",
+      "column": "Address",
       "rules": []
     }
   ]

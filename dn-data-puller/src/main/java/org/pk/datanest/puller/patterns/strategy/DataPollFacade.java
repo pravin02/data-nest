@@ -22,10 +22,10 @@ public class DataPollFacade {
     Strategy sftDataPollingStrategy;
 
     public void poll(int clientId, Map<String, String> map) {
-        switch (clientId) {
-            case 1 -> apiDataPollingStrategy.executeStrategy(map);
-            case 2 -> webSocketDataPollingStrategy.executeStrategy(map);
-            case 3 -> sftDataPollingStrategy.executeStrategy(map);
+        switch (clientId) { // get config from db based on that execute strategy
+            case 1 -> apiDataPollingStrategy.execute(map);
+            case 2 -> webSocketDataPollingStrategy.execute(map);
+            case 3 -> sftDataPollingStrategy.execute(map);
             default -> throw new RuntimeException("For Client " + clientId + " don't have any strategy to poll data");
         }
     }

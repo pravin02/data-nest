@@ -17,7 +17,7 @@ public class SFTDataPollingStrategy extends DataPollingStrategy {
     }
 
     @Override
-    public Object executeStrategy(Map<String, String> dataMap) {
+    public Object execute(Map<String, String> dataMap) {
         logger.info("executeStrategy: dataMap: {}", dataMap);
         String fileName = dataMap.get(Constant.FILE_NAME) + ".csv";
         String csvContent = (String) downloadFile(fileName, String.class);
