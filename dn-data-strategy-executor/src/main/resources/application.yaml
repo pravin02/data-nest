@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: dn-data-strategy-executor
+
+server:
+  port: 8083
+
+dn:
+  data:
+    puller:
+      host: http://localhost:8081/
+
+aggregated:
+  dataset:
+    location: "E:/Practice/SpringBoot/data-nest/dataset-files/download/"
