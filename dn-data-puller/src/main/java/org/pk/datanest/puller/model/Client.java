@@ -1,6 +1,7 @@
 package org.pk.datanest.puller.model;
 
-import org.pk.datanest.commons.patterns.strategy.ConnectionMode;
+
+import org.pk.datanest.commons.constant.ConnectionMode;
 
 import java.util.Objects;
 

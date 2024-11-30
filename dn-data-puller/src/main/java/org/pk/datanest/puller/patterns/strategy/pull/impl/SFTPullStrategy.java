@@ -1,4 +1,4 @@
-package org.pk.datanest.puller.patterns.strategy.impl;
+package org.pk.datanest.puller.patterns.strategy.pull.impl;
 
 
 import org.pk.datanest.commons.constant.Constant;
@@ -6,6 +6,7 @@ import org.pk.datanest.commons.patterns.notifier.ResourceNotifier;
 import org.pk.datanest.commons.patterns.notifier.StatusNotifier;
 import org.pk.datanest.commons.patterns.notifier.exception.NotificationFailedException;
 import org.pk.datanest.commons.patterns.notifier.model.Status;
+import org.pk.datanest.commons.patterns.strategy.PullStrategy;
 import org.pk.datanest.commons.service.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +16,10 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.Map;
 
-@Service("sftDataPollingStrategy")
-public class SFTPollStrategy extends PollStrategy<Map<String, String>, Object> implements StatusNotifier {
+@Service("sftPullStrategy")
+public class SFTPullStrategy extends PullStrategy<Map<String, String>, Object> implements StatusNotifier {
 
-    Logger logger = LoggerFactory.getLogger(SFTPollStrategy.class);
+    Logger logger = LoggerFactory.getLogger(SFTPullStrategy.class);
 
     @Autowired
     FileService fileService;

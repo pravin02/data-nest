@@ -1,4 +1,4 @@
-package org.pk.datanest.puller.patterns.strategy.impl;
+package org.pk.datanest.commons.patterns.strategy;
 
 import org.pk.datanest.commons.patterns.strategy.Strategy;
 

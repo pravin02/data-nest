@@ -1,6 +1,6 @@
 package org.pk.datanest.puller.service;
 
-import org.pk.datanest.commons.patterns.strategy.ConnectionMode;
+import org.pk.datanest.commons.constant.ConnectionMode;
 import org.pk.datanest.puller.model.Client;
 
 import java.util.Arrays;
