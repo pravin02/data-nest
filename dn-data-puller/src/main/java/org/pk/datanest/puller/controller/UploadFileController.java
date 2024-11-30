@@ -27,7 +27,7 @@ public class UploadFileController {
     @GetMapping("upload/{clientId}/{filename:.+}")
     public ResponseEntity<?> pushFile(@PathVariable int clientId, @PathVariable String filename) {
         logger.info("pushFile: dataPush request received for clientId {}", clientId);
-        Map<String, String> map = new HashMap<>(1);
+        Map<String, String> map = new HashMap<>(2);
         map.put(Constant.FILE_NAME, filename);
         map.put(Constant.CLIENT_ID, String.valueOf(clientId));
         dataPushFacade.push(map);

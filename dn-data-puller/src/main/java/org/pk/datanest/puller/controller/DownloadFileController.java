@@ -27,7 +27,7 @@ public class DownloadFileController {
     @GetMapping("/{clientId}/{filename:.+}")
     public ResponseEntity<?> pullFile(@PathVariable int clientId, @PathVariable String filename) {
         logger.info("pullFile: dataPoll request received for clientId {}", clientId);
-        Map<String, String> map = new HashMap<>(1);
+        Map<String, String> map = new HashMap<>(2);
         map.put(Constant.FILE_NAME, filename);
         map.put(Constant.CLIENT_ID, String.valueOf(clientId));
         dataPullFacade.pull(map);
