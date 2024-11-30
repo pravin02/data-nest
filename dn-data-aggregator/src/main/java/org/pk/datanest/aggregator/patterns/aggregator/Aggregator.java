@@ -4,5 +4,13 @@ import java.io.IOException;
 
 public interface Aggregator {
 
-    public void aggregate(String content, String specification) throws IOException;
+    default void started() {
+
+    }
+
+    void aggregate(String content, String specification) throws IOException;
+
+    default void completed() {
+
+    }
 }

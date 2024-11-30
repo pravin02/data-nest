@@ -77,13 +77,19 @@ public class CsvContentAggregator implements Aggregator {
         }
     }
 
+    @Override
+    public void started() {
+        Aggregator.super.started();
+    }
+
     /**
      * @param csvContent        content in csv format
      * @param jsonSpecification json specification to aggregate data from csv content
      * @throws IOException if fails to save aggregate data
      */
     @Override
-    public void aggregate(String csvContent, String jsonSpecification) throws IOException {
+    public void
+    aggregate(String csvContent, String jsonSpecification) throws IOException {
         logger.info("aggregate: start");
         List<String> specificationColumns = getSpecificationColumns(jsonSpecification);
         logger.info("aggregate: specificationColumns: {}", specificationColumns);
@@ -93,6 +99,10 @@ public class CsvContentAggregator implements Aggregator {
         logger.info("aggregate: end");
     }
 
+    @Override
+    public void completed() {
+        Aggregator.super.completed();
+    }
 
     /**
      * @param csvContent           csv content
