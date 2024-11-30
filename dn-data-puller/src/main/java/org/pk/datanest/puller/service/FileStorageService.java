@@ -1,5 +1,6 @@
 package org.pk.datanest.puller.service;
 
+import org.pk.datanest.commons.service.FileService;
 import org.pk.datanest.puller.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +17,15 @@ public class FileStorageService implements FileService {
     @Value("${dataset.location}")
     private String dataSetFileLocation;
 
-    public void save(String fileName, String content) {
-        try {
-            logger.info("save: location: {}", dataSetFileLocation + fileName);
-            FileUtils.saveFile(dataSetFileLocation + fileName, content);
-        } catch (IOException e) {
-            logger.error("saveFile: failed to save file {} with exception {}", fileName, e.getMessage());
-        }
+    @Override
+    public void save(String fileName, String content) throws IOException {
+        logger.info("save: location: {}", dataSetFileLocation + fileName);
+        FileUtils.saveFile(dataSetFileLocation + fileName, content);
+    }
+
+    @Override
+    public void save(String location, String fileName, String content) throws IOException {
+        logger.info("save: location: {}, fileName: {}", location, fileName);
+        FileUtils.saveFile(location + fileName, content);
     }
 }
