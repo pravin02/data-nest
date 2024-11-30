@@ -8,10 +8,12 @@
       "column": "FirstName",
       "rules": [
         {
-          "subtract": "(data)=>data.substr(1)"
+			"rule": "substract",
+			"ruleDef": "(data)=>data.substr(1)"
         },
         {
-          "upperCase": "(data)=>data.toLocaleUpperCase()"
+			"rule" : "uppercase",
+			"ruleDef": "(data)=>data.toLocaleUpperCase()"
         }
       ]
     },

@@ -23,6 +23,7 @@ public class StrategyExecutorNotificationController {
 
     @GetMapping("/execute/{clientId}")
     public ResponseEntity<?> executeStrategy(@PathVariable int clientId) throws IOException {
+        logger.info("executeStrategy: notification received from client id {}", clientId);
         strategyExecutorFacade.execute(clientId);
         return ResponseEntity.ok().body("Notification received for Client Id " + clientId + " for strategy execution");
     }

@@ -1,6 +1,6 @@
 package org.pk.datanest.puller.patterns.notifier;
 
-public interface Notifier {
+public interface Notifier<T> {
 
-    void sendNotification(String clientId);
+    void notify(T t);
 }

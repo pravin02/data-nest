@@ -17,7 +17,7 @@ public class AggregatorFacade {
 
     @Autowired
     @Qualifier("csvContentAggregator")
-    Aggregator csvContentAggregator;
+    Aggregator<String, String> csvContentAggregator;
 
     @Autowired
     FileService fileService;

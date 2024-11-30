@@ -10,7 +10,7 @@ import org.springframework.web.client.RestClient;
 
 @Primary
 @Service
-public class AggregatorNotificationService implements Notifier {
+public class AggregatorNotificationService implements Notifier<String> {
 
     Logger logger = LoggerFactory.getLogger(AggregatorNotificationService.class);
 
@@ -19,8 +19,10 @@ public class AggregatorNotificationService implements Notifier {
     RestClient restClient;
 
     @Override
-    public void sendNotification(String clientId) {
-        String response = restClient.get().uri("notification/" + clientId).retrieve().body(String.class);
+    public void notify(String clientId) {
+        String response = restClient.get().uri("notification/" + clientId)
+                .retrieve()
+                .body(String.class);
         logger.info("sendNotification: response: {}", response);
         logger.info("sendNotification: notification sent successfully for client {}", clientId);
     }

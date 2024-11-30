@@ -1,16 +1,7 @@
 package org.pk.datanest.aggregator.patterns.aggregator;
 
-import java.io.IOException;
+public interface Aggregator<T, S> {
 
-public interface Aggregator {
+    void aggregate(T content, S specification);
 
-    default void started() {
-
-    }
-
-    void aggregate(String content, String specification) throws IOException;
-
-    default void completed() {
-
-    }
 }

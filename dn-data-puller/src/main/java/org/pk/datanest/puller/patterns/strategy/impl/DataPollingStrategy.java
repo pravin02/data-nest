@@ -26,7 +26,7 @@ public abstract class DataPollingStrategy implements Strategy {
     public void executionCompleted(Map<String, String> dataMap) {
         String clientId = dataMap.get(Constant.CLIENT_ID);
         logger.info("executionCompleted: Execution completed for client: {}", clientId);
-        notifier.sendNotification(clientId);
+        notifier.notify(clientId);
     }
 
     protected String getSpecificationFileName(String fileName) {

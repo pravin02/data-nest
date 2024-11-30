@@ -1,26 +1,34 @@
-package org.pk.datanest.aggregator.patterns.aggregator;
+package org.pk.datanest.aggregator.patterns.impl.aggregator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.pk.datanest.aggregator.constant.Constant;
 import org.pk.datanest.aggregator.exception.InvalidSpecificationException;
+import org.pk.datanest.aggregator.patterns.aggregator.Aggregator;
+import org.pk.datanest.aggregator.patterns.notifier.ResourceNotifier;
+import org.pk.datanest.aggregator.patterns.notifier.StatusNotifier;
+import org.pk.datanest.aggregator.patterns.notifier.exception.NotificationFailedException;
+import org.pk.datanest.aggregator.patterns.notifier.model.Status;
 import org.pk.datanest.aggregator.specification.Column;
 import org.pk.datanest.aggregator.specification.JsonSpecification;
 import org.pk.datanest.aggregator.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service("csvContentAggregator")
-public class CsvContentAggregator implements Aggregator {
+public class CsvContentAggregator implements Aggregator<String, String>, StatusNotifier<Status, Throwable> {
 
     Logger logger = LoggerFactory.getLogger(CsvContentAggregator.class);
+
+    @Autowired
+    ResourceNotifier<String> notifier;
 
     @Value("${dataset.location}")
     private String datasetLocation;
@@ -78,30 +86,43 @@ public class CsvContentAggregator implements Aggregator {
     }
 
     @Override
-    public void started() {
-        Aggregator.super.started();
+    public void notifyStatus(Status status, Throwable throwable) {
+        logger.info("notifyStatus: Aggregation status : {}", status);
+        switch (status) {
+            case STARTED -> logger.info("notifyStatus: Aggregation in started");
+            case IN_PROGRESS -> logger.info("notifyStatus: Aggregation in progress");
+            case FAILED -> logger.error("notifyStatus: Aggregation failed with root cause ", throwable);
+            case COMPLETED -> {
+                try {
+                    notifier.notify(String.valueOf(1));
+                } catch (NotificationFailedException nfe) {
+                    logger.error("notifyStatus: Failed to send notification {}", nfe.getMessage());
+                }
+            }
+        }
     }
 
     /**
      * @param csvContent        content in csv format
      * @param jsonSpecification json specification to aggregate data from csv content
-     * @throws IOException if fails to save aggregate data
      */
     @Override
-    public void
-    aggregate(String csvContent, String jsonSpecification) throws IOException {
-        logger.info("aggregate: start");
-        List<String> specificationColumns = getSpecificationColumns(jsonSpecification);
-        logger.info("aggregate: specificationColumns: {}", specificationColumns);
-        String aggregatedData = extractCsvData(csvContent, specificationColumns);
-        logger.info("aggregate: data:\n{}", aggregatedData);
-        FileUtils.saveFile(datasetLocation + "_aggregated.csv", aggregatedData);
-        logger.info("aggregate: end");
-    }
-
-    @Override
-    public void completed() {
-        Aggregator.super.completed();
+    public void aggregate(String csvContent, String jsonSpecification) {
+        try {
+            notifyStatus(Status.STARTED, null);
+            logger.info("aggregate: start");
+            List<String> specificationColumns = getSpecificationColumns(jsonSpecification);
+            logger.info("aggregate: specificationColumns: {}", specificationColumns);
+            notifyStatus(Status.IN_PROGRESS, null);
+            String aggregatedData = extractCsvData(csvContent, specificationColumns);
+            logger.info("aggregate: data:\n{}", aggregatedData);
+            FileUtils.saveFile(datasetLocation + "1_aggregated.csv", aggregatedData);
+            logger.info("aggregate: end");
+            notifyStatus(Status.COMPLETED, null);
+        } catch (Exception e) {
+            logger.error("aggregate: failed :{}", e.getMessage());
+            notifyStatus(Status.FAILED, e);
+        }
     }
 
     /**

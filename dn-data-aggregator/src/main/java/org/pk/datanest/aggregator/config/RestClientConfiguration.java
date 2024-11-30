@@ -9,10 +9,10 @@ import org.springframework.web.client.RestClient;
 public class RestClientConfiguration {
 
     @Value("${dn.data.strategyExecutor.host}")
-    String downloadLocation;
+    String strategyExecutorHost;
 
     @Bean
     public RestClient getRestClient() {
-        return RestClient.create(downloadLocation);
+        return RestClient.create(strategyExecutorHost);
     }
 }
